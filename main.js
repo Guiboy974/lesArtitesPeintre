@@ -46,24 +46,23 @@ function toggleAccordion(event) {
 //slider
 
 let slidesIndex = 0;
-showSlides(slidesIndex);
+showSlides();
 
 // show slide
 function showSlides() {
   let slides = document.getElementsByClassName("myslide");
   
-  for (let i = 0; i < slides.length-1; i++) {
-    // slides[slidesIndex].classList.toggle("hidden")
-    if (slidesIndex < 0) {
-      slidesIndex = slides.length
-    }
-    if (slidesIndex > slides.length) {
-      slidesIndex = 0
-    }
-    
-    // slides[slidesIndex].classList.add("block")
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.add("hidden")
   }
-  // slides[slidesIndex].classList.add("block")
+
+  if (slidesIndex> slides.length-1) {
+    slidesIndex = 0
+  } 
+  
+  slides[slidesIndex].classList.toggle("hidden");
+  slidesIndex++;
 }
-setInterval(() => showSlides(slidesIndex++), 3000)
+
+setInterval(() => showSlides(), 2000)
 
