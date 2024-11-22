@@ -27,6 +27,47 @@
     .active:after {
       content: "\2212";
     }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: rgb(5, 5, 5);
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev {
+      left: 0;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+
+      .prev,
+      .next {
+        font-size: 11px
+      }
+    }
   </style>
 </head>
 
@@ -110,55 +151,59 @@
         <h1>Ce que nous faisons</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus praesentium distinctio corrupti libero
           voluptatibus architecto animi qui dicta cupiditate inventore quibusdam delectus tempora provident, sunt
-          veritatis? Omnis accusantium facere adipisci.<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque officia cumque aspernatur voluptas velit incidunt, neque, voluptatum repellat consequuntur ratione aperiam, labore eveniet quia sunt? Debitis illo consequuntur ipsa molestias?</p>
+          veritatis? Omnis accusantium facere adipisci.<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Eaque officia cumque aspernatur voluptas velit incidunt, neque, voluptatum repellat consequuntur ratione
+          aperiam, labore eveniet quia sunt? Debitis illo consequuntur ipsa molestias?</p>
       </div>
     </article>
     <section>
-        <button class="accordion h-8 p-2 w-full text-left">Galerie Picasso</button>
-        <div class="panel flex flex-wrap hidden transition-all ease-in-out delai-500 mx-auto">
-          <div class="myslide justify-center m-1">
-            <img src="img/img/Autoportrait_Picasso.png" alt="autoportrait Picasso" class="w-52 h-52">
-            <p class="text-center">Autoportrait Picasso</p>
-          </div>
-          <div class="myslide justify-center m-1">
-            <img src="img/img/Demoiselles_Avignon.png" alt="Demoiselles Avignon (1907)" class="w-52 h-52">
-            <p class="text-center">Demoiselles Avignon (1907)</p>
-          </div>
-          <div class="myslide justify-center m-1">
-            <img src="img/img/guernica.png" alt="Guernica (1937)" class="w-52 h-52">
-            <p class="text-center">Guernica (1937)</p>
-          </div>
+      <button class="accordion h-8 p-2 w-full text-left">Galerie Picasso</button>
+      <div class="panel flex relative justify-center hidden transition-all ease-in-out delai-500 mx-auto">
+        <div class="myslide justify-center m-1">
+          <img src="img/img/Autoportrait_Picasso.png" alt="autoportrait Picasso" class="w-96 h-96">
+          <p class="text-center">Autoportrait Picasso</p>
         </div>
-        <button class="accordion h-8 p-2 w-full text-left">Galerie Caillebotte</button>
-        <div class="panel flex flex-wrap hidden transition-all ease-in-out delai-400 justify-items-center">
-          <div class="justify-center m-1">
-            <img src="img/img/Autoportrait_Caillebotte.png" alt="autoportrait Caillebotte"class="w-52 h-52">
-            <p class="text-center">Autoportrait Caillebotte</p>
-          </div>
-          <div class="justify-center m-1">
-            <img src="img/img/Demoiselles_Avignon.png" alt="Demoiselles Avignon (1907)"class="w-52 h-52">
-            <p class="text-center">Demoiselles Avignon (1907)</p>
-          </div>
-          <div class="justify-center w-auto m-1">
-            <img src="img/img/guernica.png" alt="Guernica (1937)"class="w-52 h-52">
-            <p class="text-center">Guernica (1937)</p>
-          </div>
+        <div class="myslide justify-center m-1">
+          <img src="img/img/Demoiselles_Avignon.png" alt="Demoiselles Avignon (1907)" class="w-96 h-96">
+          <p class="text-center">Demoiselles Avignon (1907)</p>
         </div>
-        <button class="accordion h-8 p-2 w-full text-left">Galerie Caillebotte</button>
-        <div class="panel flex flex-wrap hidden transition-all ease-in-out delai-400 mx-auto">
-          <div class="justify-center m-1">
-            <img src="img/img/Autoportrait_Caillebotte.png" alt="autoportrait Caillebotte"class="w-52 h-52">
-            <p class="text-center">Autoportrait Caillebotte</p>
-          </div>
-          <div class="justify-center m-1">
-            <img src="img/img/Demoiselles_Avignon.png" alt="Demoiselles Avignon (1907)"class="w-52 h-52">
-            <p class="text-center">Demoiselles Avignon (1907)</p>
-          </div>
-          <div class="justify-center m-1">
-            <img src="img/img/guernica.png" alt="Guernica (1937)"class="w-52 h-52">
-            <p class="text-center">Guernica (1937)</p>
-          </div>
+        <div class="myslide justify-center m-1">
+          <img src="img/img/guernica.png" alt="Guernica (1937)" class="w-96 h-96">
+          <p class="text-center">Guernica (1937)</p>
         </div>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      </div>
+      <button class="accordion h-8 p-2 w-full text-left">Galerie Caillebotte</button>
+      <div class="panel flex flex-wrap hidden transition-all ease-in-out delai-400 justify-items-center">
+        <div class="justify-center m-1">
+          <img src="img/img/Autoportrait_Caillebotte.png" alt="autoportrait Caillebotte" class="w-52 h-52">
+          <p class="text-center">Autoportrait Caillebotte</p>
+        </div>
+        <div class="justify-center m-1">
+          <img src="img/img/Demoiselles_Avignon.png" alt="Demoiselles Avignon (1907)" class="w-52 h-52">
+          <p class="text-center">Demoiselles Avignon (1907)</p>
+        </div>
+        <div class="justify-center w-auto m-1">
+          <img src="img/img/guernica.png" alt="Guernica (1937)" class="w-52 h-52">
+          <p class="text-center">Guernica (1937)</p>
+        </div>
+      </div>
+      <button class="accordion h-8 p-2 w-full text-left">Galerie Caillebotte</button>
+      <div class="panel flex flex-wrap hidden transition-all ease-in-out delai-400 mx-auto">
+        <div class="justify-center m-1">
+          <img src="img/img/Autoportrait_Caillebotte.png" alt="autoportrait Caillebotte" class="w-52 h-52">
+          <p class="text-center">Autoportrait Caillebotte</p>
+        </div>
+        <div class="justify-center m-1">
+          <img src="img/img/Demoiselles_Avignon.png" alt="Demoiselles Avignon (1907)" class="w-52 h-52">
+          <p class="text-center">Demoiselles Avignon (1907)</p>
+        </div>
+        <div class="justify-center m-1">
+          <img src="img/img/guernica.png" alt="Guernica (1937)" class="w-52 h-52">
+          <p class="text-center">Guernica (1937)</p>
+        </div>
+      </div>
     </section>
   </main>
 </body>

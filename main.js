@@ -45,24 +45,38 @@ function toggleAccordion(event) {
 
 //slider
 
+
 let slidesIndex = 0;
 showSlides();
 
+// next/previous slide
+const next = document.getElementsByClassName("next")[0];
+const prev = document.getElementsByClassName("prev")[0];
+
+next.addEventListener("click", () => showSlides());
+prev.addEventListener("click", () => showSlides());
+
 // show slide
-function showSlides() {
+function showSlides(event) {
   let slides = document.getElementsByClassName("myslide");
   
   for (let i = 0; i < slides.length; i++) {
     slides[i].classList.add("hidden")
   }
-
+  
   if (slidesIndex> slides.length-1) {
     slidesIndex = 0
   } 
   
   slides[slidesIndex].classList.toggle("hidden");
   slidesIndex++;
+  // if (event.target.className === "prev"){
+  //   slidesIndex--
+  // } else {
+  //   slidesIndex++
+  // }
+
 }
 
-setInterval(() => showSlides(), 2000)
+setInterval(() => showSlides(), 4000)
 
