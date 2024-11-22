@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="main.js"></script>
+  <title>Les artistes peintres</title>
+  <style>
+    .active,
+    .accordion:hover {
+      background-color: #ccc;
+    }
+
+    .accordion:after {
+      content: '\002B';
+      color: #777;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="flex align-items-center sm:justify-center justify-start">
+      <img src="img/img/logo-art-peinture.png" alt="logo artistes peintres">
+      <h1 class="self-center">Les Artistes Peintres</h1>
+    </div>
+    <nav class="sm:flex">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button id="burgerButton" type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-1 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu" aria-expanded="true">
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <!--
+                            Icon when menu is closed.
+                
+                            Menu open: "hidden", Menu closed: "block"
+                          -->
+              <svg id="burgerIcon" class="block m-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="false">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <!--
+                            Icon when menu is open.
+                
+                            Menu open: "block", Menu closed: "hidden"
+                          -->
+              <svg id="closeIcon" class="hidden m-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-1 items-center justify-center sm:justify-start">
+
+            <div class="hidden sm:ml-6 sm:block">
+              <div class="flex space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="index.html" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                  aria-current="page">Home</a>
+                <a href="#apropos"
+                  class="rounded-md px-3 py-2 text-sm font-medium text-slate-800 hover:bg-gray-700 hover:text-white">About</a>
+                <a href="#projects"
+                  class="rounded-md px-3 py-2 text-sm font-medium text-slate-800 hover:bg-gray-700 hover:text-white">Projects</a>
+                <a href="#contact"
+                  class="rounded-md px-3 py-2 text-sm font-medium text-slate-800 hover:bg-gray-700 hover:text-white">Contact</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- un commenteaire -->
+      </div>
+
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div class="sm:hidden hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a href="index.html" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+            aria-current="page">Home</a>
+          <a href="#apropos"
+            class="block rounded-md px-3 py-2 text-base font-medium text-slate-800 hover:bg-gray-700 hover:text-white">About</a>
+          <a href="#projects"
+            class="block rounded-md px-3 py-2 text-base font-medium text-slate-800 hover:bg-gray-700 hover:text-white">Projects</a>
+          <a href="#contact"
+            class="block rounded-md px-3 py-2 text-base font-medium text-slate-800 hover:bg-gray-700 hover:text-white">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <article class="flex my-5 flex-wrap sm:flex-nowrap">
+      <img src="img/img/img_baniere.png" alt="peinture banniere" class="w-1/3 h-auto">
+      <div>
+        <h1>Ce que nous faisons</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus praesentium distinctio corrupti libero
+          voluptatibus architecto animi qui dicta cupiditate inventore quibusdam delectus tempora provident, sunt
+          veritatis? Omnis accusantium facere adipisci.<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque officia cumque aspernatur voluptas velit incidunt, neque, voluptatum repellat consequuntur ratione aperiam, labore eveniet quia sunt? Debitis illo consequuntur ipsa molestias?</p>
+      </div>
+    </article>
+    <section>
+        <button class="accordion h-8 p-2 w-full text-left">Galerie Picasso</button>
+        <div class="panel flex flex-wrap hidden transition-all ease-in-out delai-500 mx-auto">
+          <div class="myslide justify-center m-1">
+            <img src="img/img/Autoportrait_Picasso.png" alt="autoportrait Picasso" class="w-52 h-52">
+            <p class="text-center">Autoportrait Picasso</p>
+          </div>
+          <div class="myslide justify-center m-1">
+            <img src="img/img/Demoiselles_Avignon.png" alt="Demoiselles Avignon (1907)" class="w-52 h-52">
+            <p class="text-center">Demoiselles Avignon (1907)</p>
+          </div>
+          <div class="myslide justify-center m-1">
+            <img src="img/img/guernica.png" alt="Guernica (1937)" class="w-52 h-52">
+            <p class="text-center">Guernica (1937)</p>
+          </div>
+        </div>
+        <button class="accordion h-8 p-2 w-full text-left">Galerie Caillebotte</button>
+        <div class="panel flex flex-wrap hidden transition-all ease-in-out delai-400 justify-items-center">
+          <div class="justify-center m-1">
+            <img src="img/img/Autoportrait_Caillebotte.png" alt="autoportrait Caillebotte"class="w-52 h-52">
+            <p class="text-center">Autoportrait Caillebotte</p>
+          </div>
+          <div class="justify-center m-1">
+            <img src="img/img/Demoiselles_Avignon.png" alt="Demoiselles Avignon (1907)"class="w-52 h-52">
+            <p class="text-center">Demoiselles Avignon (1907)</p>
+          </div>
+          <div class="justify-center w-auto m-1">
+            <img src="img/img/guernica.png" alt="Guernica (1937)"class="w-52 h-52">
+            <p class="text-center">Guernica (1937)</p>
+          </div>
+        </div>
+        <button class="accordion h-8 p-2 w-full text-left">Galerie Caillebotte</button>
+        <div class="panel flex flex-wrap hidden transition-all ease-in-out delai-400 mx-auto">
+          <div class="justify-center m-1">
+            <img src="img/img/Autoportrait_Caillebotte.png" alt="autoportrait Caillebotte"class="w-52 h-52">
+            <p class="text-center">Autoportrait Caillebotte</p>
+          </div>
+          <div class="justify-center m-1">
+            <img src="img/img/Demoiselles_Avignon.png" alt="Demoiselles Avignon (1907)"class="w-52 h-52">
+            <p class="text-center">Demoiselles Avignon (1907)</p>
+          </div>
+          <div class="justify-center m-1">
+            <img src="img/img/guernica.png" alt="Guernica (1937)"class="w-52 h-52">
+            <p class="text-center">Guernica (1937)</p>
+          </div>
+        </div>
+    </section>
+  </main>
+</body>
+
+</html>
